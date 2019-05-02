@@ -14,4 +14,24 @@ def isStringPermutation(s1, s2):
     else:
         return False
 # worstcase runtime is O(nlogn)
+
+def pairsThatEqualSum(inputArray,targetSum):
+    answer = []
+    for i in inputArray:
+        if (targetSum-i in inputArray):
+            answer.append([i, targetSum-i])
+            inputArray.remove(i)
+    return answer
+#worstcase runtime is O(n) or O(n^2) - becasue of if statement in for loop that has a python equivalent to .contains() check
+#Method 1 Tests
 print(isStringPermutation("Ernest", "nester"))
+print(isStringPermutation("dad", "add"))
+print(isStringPermutation("dog", "cat"))
+print(isStringPermutation("dogg", "dog"))
+#Method 2 Tests
+nums1 = [1,2,3,4,5,6,7,8,9]
+nums2 = [1,2,3,4,5,6,7,8,9]
+nums3 = [1,2,3,4,5,6,7,8,9]
+print(pairsThatEqualSum(nums1,10))
+print(pairsThatEqualSum(nums2,0))
+print(pairsThatEqualSum(nums3,1))
