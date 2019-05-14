@@ -1,60 +1,65 @@
 class Stack(object):
     data = []
-    size = 0
+    length = 0
 
     def __init__(self):
         self.data = []
-        self.size = 0
+        self.length = 0
 
     def isEmpty(self):
-        return self.size == 0
+        return self.length == 0
 
     def size(self):
-         return self.size
+         return self.length
 
     def push(self, x):
-        self.size += 1
+        self.length += 1
         self.data.append(x)
 
     def pop(self):
-        if self.size == 0:
+        if self.length == 0:
             return "Stack is empty"
         else:
-            self.size -= 1
+            self.length -= 1
             return self.data.pop()
 
     def top(self):
-        return self.data[self.size-1]
+        return self.data[self.length - 1]
 
-# class Queue(object):
-#     data = []
-#     size = None
-#     min = None
-#
-#     def __init__(self):
-#         self.data = []
-#         self.size = 0
-#         self.min  = 0
-#
-#     def isEmpty(self):
-#         return self.size == 0
-#
-#     # def size(self):
-#     #     return self.size
-#
-#     def enqueue(self, x):
-#         self.size += 1
-#         self.data.append(x)
-#
-#     def dequeue(self):
-#         if self.size == 0:
-#             return "Stack is empty"
-#         else:
-#             self.size -= 1
-#             return self.data.pop()
-#
-#     def min(self):
-#         return self.min
+class Queue(object):
+    data = []
+    length = 0
+    minimum = 0
+
+    def __init__(self):
+        self.data = []
+        self.length = 0
+        self.minimum   = 0
+
+    def isEmpty(self):
+        return self.length == 0
+
+    def size(self):
+        return self.length
+
+    def enqueue(self, x):
+        self.length += 1
+        self.data.append(x)
+
+    def dequeue(self):
+        if self.length == 0:
+            return "Queue is empty"
+        else:
+            self.length -= 1
+            return self.data.pop(0)
+
+    def min(self):
+        if self.length == 0:
+            return "Queue is empty"
+        else:
+            newList = sorted(self.data)
+            return newList[0]
+
 
 myStack = Stack()
 myStack.push(42)
@@ -64,5 +69,16 @@ popped_value = myStack.pop()
 print ("Printing the popped value:", popped_value)
 
 
+myQueue = Queue()
+myQueue.enqueue(1)
+myQueue.enqueue(2)
+myQueue.enqueue(4)
+myQueue.enqueue(3)
+myQueue.enqueue(13)
+myQueue.enqueue(2)
+myQueue.enqueue(-19)
+print (myQueue.dequeue())
+print (myQueue.dequeue())
+print (myQueue.min())
 
 
