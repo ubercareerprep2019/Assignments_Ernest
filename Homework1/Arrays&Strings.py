@@ -16,9 +16,10 @@ def pairsThatEqualSum(inputArray,targetSum):
     answer = []
     for i in inputArray:
         if (targetSum-i in inputArray):
+            if targetSum-i == i and inputArray.count(targetSum-i) < 2:
+                continue
             inputArray.remove(i)
             answer.append([i, targetSum-i])
-            #inputArray.remove(i)
     return answer
 #worstcase runtime is O(n) or O(n^2) - becasue of if statement in for loop that has a python equivalent to .contains() check
 #Method 1 Tests
