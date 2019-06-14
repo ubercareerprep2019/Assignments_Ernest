@@ -1,10 +1,12 @@
 class Stack(object):
     data = []
     length = 0
+    minElement = None
 
     def __init__(self):
         self.data = []
         self.length = 0
+        self.minElement = None
 
     def isEmpty(self):
         return self.length == 0
@@ -15,16 +17,23 @@ class Stack(object):
     def push(self, x):
         self.length += 1
         self.data.append(x)
+        if self.length == 1:
+            self.minElement = x
+        elif self.minElement > x:
+            self.minElement = x
 
     def pop(self):
         if self.length == 0:
-            return "Stack is empty"
+            print("Stack is empty, Pop Unsuccessful ")
         else:
             self.length -= 1
             return self.data.pop()
 
     def top(self):
         return self.data[self.length - 1]
+
+    def min(self):
+        return self.minElement
 
 class Queue(object):
     data = []
@@ -67,6 +76,14 @@ print ("Printing top of stack after a push: ", myStack.top())
 print ( "Printing size (should be 1): ", myStack.size())
 popped_value = myStack.pop()
 print ("Printing the popped value:", popped_value)
+myStack.push(3)
+myStack.push(2)
+myStack.push(9)
+print ("Printing min of stack after all push: ", myStack.min())
+myStack.pop()
+myStack.pop()
+myStack.pop()
+myStack.pop()
 
 
 myQueue = Queue()

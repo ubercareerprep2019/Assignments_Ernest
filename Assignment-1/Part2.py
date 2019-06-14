@@ -31,6 +31,6 @@ print(isStringPermutation("dogg", "dog"))
 nums1 = [1,2,3,4,5,6,7,8,9]
 nums2 = [1,2,3,4,5,6,7,8,9]
 nums3 = [1,2,3,4,5,6,7,8,9]
-print(pairsThatEqualSum(nums1,10)) #[5,5] bug
+print(pairsThatEqualSum(nums1,10))
 print(pairsThatEqualSum(nums2,0))
 print(pairsThatEqualSum(nums3,1))
